@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useState, useEffect, useRef } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 
@@ -22,17 +23,24 @@ const CountryPhoneInput: React.FC<Props> = ({ paramKey = "lang" }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement | null>(null);
 
-  const [selectedCountry, setSelectedCountry] = useState<Country>(() => {
+  // --- SAFE INITIAL VALUE ---
+  const [selectedCountry, setSelectedCountry] = useState<Country>(countries[0]);
+
+  // --- SAFE SEARCH PARAM READING (AVOIDS VERCEL BUILD ERROR) ---
+  useEffect(() => {
     const id = searchParams.get(paramKey) || "us";
-    return countries.find((c) => c.id === id) || countries[0];
-  });
+    const match = countries.find((c) => c.id === id) || countries[0];
+    setSelectedCountry(match);
+  }, [searchParams, paramKey]);
 
   const [phoneNumber, setPhoneNumber] = useState("");
 
   const changeCountry = (country: Country) => {
     setSelectedCountry(country);
+
     const newUrl = new URL(window.location.href);
     newUrl.searchParams.set(paramKey, country.id);
+
     router.replace(newUrl.toString(), { scroll: false });
     setDropdownOpen(false);
   };

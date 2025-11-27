@@ -1,3 +1,4 @@
+"use client"
 import React from 'react'
 import EditProfile from './EditProfile'
 import DashBoardHeader from '../DashBoardHeader'
