@@ -16,7 +16,7 @@ import EyeClose from "../../../../public/images/eye-slash.png";
 import EyeOpen from "../../../../public/images/eye.png";
 
 import UploadImg from "../../../../public/images/file-upload-img.png";
-import LanguageSwitcherCountryName from '../LanguageSwitcherCountryName';
+import LanguageSwitcherWrapper from '../LanguageSwitcherWrapper';
 
 const FormCard = () => {
     return (
@@ -53,7 +53,7 @@ const FormCard = () => {
                         </div>
 
                         <div className='mb-4 form-lable-box card-language-selector position-relative'>
-                            <LanguageSwitcherCountryName />
+                            <LanguageSwitcherWrapper />
                             <label className="form-lable-box">Select Country</label>
                             <div className='dropdown-arrow'>
                                 <svg width="24" height="24" viewBox="0 0 24 24">

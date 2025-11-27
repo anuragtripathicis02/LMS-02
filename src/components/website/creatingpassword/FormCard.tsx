@@ -16,7 +16,7 @@ import EyeClose from "../../../../public/images/eye-slash.png";
 import EyeOpen from "../../../../public/images/eye.png";
 
 import UploadImg from "../../../../public/images/file-upload-img.png";
-import LanguageSwitcherCountryName from '../LanguageSwitcherCountryName';
+import LanguageSwitcherWrapper from '../LanguageSwitcherWrapper';
 
 const FormCard = () => {
     return (
